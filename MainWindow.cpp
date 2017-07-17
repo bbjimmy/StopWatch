@@ -66,13 +66,16 @@ MainWindow::MainWindow(void)
 
 void
 MainWindow::MessageReceived(BMessage *msg)
-{	
+{
+	
+						
 	switch (msg->what)
 	{
 		case M_BUTTON_START:
 		{
 			clockStart = true;
 			clockReset = false;
+			
 			TickTock();
 			break;	
 		}
@@ -80,12 +83,14 @@ MainWindow::MessageReceived(BMessage *msg)
 		{
 			clockStart = false;
 			clockReset = false;
+			
 			break;
 		}
 		case M_BUTTON_RESET:
 		{
 			clockStart = false;
 			clockReset = true;
+			
 			UpdateClock();
 			totalCycles = 0;
 			totalSeconds = 0;
